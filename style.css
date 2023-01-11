@@ -1,0 +1,38 @@
+* {
+    margin: 0%;
+}
+
+body {
+    background: burlywood;
+}
+
+header {
+    text-align: center;
+    background: rgb(79, 78, 78);
+    height: 15vh;
+    padding-top: 20px;
+    color: azure;
+}
+
+.search-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.results-card {
+    width: 60%;
+    height: 60vh;
+    margin: 10px;
+    float: right;
+    text-align: center;
+    border: 5px solid black;
+}
+
+.other-card {
+    width: 35%;
+    height: 60vh;
+    margin: 10px;
+    float: left;
+    text-align: center;
+    border: 5px solid black;
+}
