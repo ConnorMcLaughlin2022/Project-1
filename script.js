@@ -33,6 +33,19 @@ function getApi(events){
 }
 getApi(events)
 
+var cityInput =document.getElementById('cityinput').value;
+
+function searchLoc(term){
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log('search for ${format} of ${term}')
+        console.log(data);
+        console.log('===============')
+    })
+}
+
+searchLoc('Seattle')
 /*function getApi(artist){
     fetch(artist)
     .then(function (response){
