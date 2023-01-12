@@ -16,7 +16,15 @@ header {
 
 .search-card {
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
+    width: 40%;
+  align-items: center;
+  background-color: gray;
+  margin-left: 30%;
+  margin-top: 10px;
+  border: 4px solid rgb(79, 78, 78) ;
+  padding: 10px;
+ 
 }
 
 .results-card {
@@ -24,8 +32,9 @@ header {
     height: 60vh;
     margin: 10px;
     float: right;
-    text-align: center;
-    border: 5px solid black;
+    text-align: left;
+    border: 4px solid rgb(79, 78, 78);
+    padding-left: 5px;
 }
 
 .other-card {
@@ -34,7 +43,7 @@ header {
     margin: 10px;
     float: left;
     text-align: center;
-    border: 5px solid black;
+    border: 4px solid rgb(79, 78, 78);
 }
 
 .modal {
@@ -86,6 +95,7 @@ header {
     display: none;
 }
 
+<<<<<<< HEAD
 .overlay {
     position: fixed;
     top: 0;
@@ -97,3 +107,5 @@ header {
     backdrop-filter: blur (3px);
     z-index: 1;
 }
+=======
+>>>>>>> dev

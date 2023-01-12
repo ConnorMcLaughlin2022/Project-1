@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="./style.css">
     <title>Project-1</title>
@@ -10,20 +18,24 @@
 <body>
     <header>
         <h1> title: Bands in Town?</h1>
-        <p>check your area for live music near you</p>
+        <p>check your area for events near you</p>
     </header>
     <main>
-        <section class="search-card">
+        <section class="search-card z-depth-5 card-panel hoverable">
             <h3 class="card-header">Search By City</h3>
-            <input type="text" id="cityinput">
-            <button type="submit" class="searchbtn">find shows</button>
+            <!-- <input type="text" id="cityinput"> -->
+            <input class="input" type="text" placeholder="enter location">
+            <button type="submit" class="btn">find events</button>
         </section>
 
-        <section class="results-card">
-            <h2>Showing Shows in Area</h2>
+        <section id="event-results" class="results-card z-depth-5 card-panel hoverable">
+            <h3>Events in Area:</h3>
+            <ul>
+
+            </ul>
         </section>
 
-        <section class="other-card">
+        <section class="other-card z-depth-5 card-panel hoverable">
             <h2>Lyft</h2>
             <section class="modal hidden"></section>
             <div class="flex"></div>
@@ -42,6 +54,7 @@
 
 
     </main>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
