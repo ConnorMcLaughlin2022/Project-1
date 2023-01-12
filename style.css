@@ -17,6 +17,7 @@ header {
 .search-card {
     text-align: center;
     padding: 20px;
+    justify-content: center;
 }
 
 .results-card {
