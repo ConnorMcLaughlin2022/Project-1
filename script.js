@@ -238,11 +238,13 @@ function breweryInput(input){
         return response.json();
     }).then(function(data){
         console.log(data);
-        
-        var brewList= document.createElement('li')
-        brewUl.appendChild(brewList).textContent(data.name)
-        brewUl.appendChild(brewList).textContent('Address: '+data.street)
-        brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+        for (i=0; i<data.length; i++){
+            var brewList= document.createElement('li')
+            
+            brewUl.appendChild(brewList).textContent(data.name)
+            brewUl.appendChild(brewList).textContent('Address: '+data.street)
+            brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+        }
     })
 }
 
