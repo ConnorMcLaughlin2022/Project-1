@@ -26,31 +26,31 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 var responseText= document.getElementById('#cityinput');
 
 
-// function getApi(events){
-//     fetch(events)
-//     .then(function (response){
-//         console.log(response);
+function getApi(events){
+    fetch(events)
+    .then(function (response){
+        console.log(response);
 
-//         return response.json();
-//     }).then(function(data){
-//         console.log(data._embedded.events)
-//         var info= data._embedded.events
-//         for(var i=0;i<info.length;i++){
-//             console.log(info[i])
+        return response.json();
+    }).then(function(data){
+        console.log(data._embedded.events)
+        var info= data._embedded.events
+        for(var i=0;i<info.length;i++){
+            console.log(info[i])
 
-//             var resultsCard = document.getElementById('event-results')
+            var resultsCard = document.getElementById('event-results')
 
-//             var li = document.createElement('li');
-//             li.classList.add('event-name')
-//             li.innerText = info[i].name;
+            var li = document.createElement('li');
+            li.classList.add('event-name')
+            li.innerText = info[i].name;
 
-//             resultsCard.appendChild(li);
+            resultsCard.appendChild(li);
 
 
-//         }
-//     });
-// }
-// getApi(events)
+        }
+    });
+}
+getApi(events)
 
 var cityInput =document.getElementById('cityinput');
 
@@ -64,7 +64,7 @@ function searchLoc(term){
     })
 }
 
-// searchLoc('Seattle')
+searchLoc('Seattle')
 /*function getApi(artist){
     fetch(artist)
     .then(function (response){
@@ -245,3 +245,5 @@ function breweryInput(input){
         brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
     })
 }
+
+breweryInput(cityInput.value);
