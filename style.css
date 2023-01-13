@@ -95,7 +95,6 @@ header {
     display: none;
 }
 
-<<<<<<< HEAD
 .overlay {
     position: fixed;
     top: 0;
@@ -107,5 +106,3 @@ header {
     backdrop-filter: blur (3px);
     z-index: 1;
 }
-=======
->>>>>>> dev
