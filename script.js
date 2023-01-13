@@ -34,7 +34,7 @@ function getApi(events){
 getApi(events)
 
 var cityInput =document.getElementById('cityinput').value;
-
+cityInput.addEventListener('click'searchLoc);
 function searchLoc(term){
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
         return response.json();
