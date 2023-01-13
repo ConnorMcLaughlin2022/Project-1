@@ -26,7 +26,7 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 var responseText= document.getElementById('#cityinput');
 
 
-function getApi(events){
+/*function getApi(events){
     fetch(events)
     .then(function (response){
         console.log(response);
@@ -47,9 +47,9 @@ function getApi(events){
             resultsCard.appendChild(li);
 
 
-        }
     });
 }
+
 getApi(events)
 
 var cityInput =document.getElementById('cityinput');
