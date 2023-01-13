@@ -18,7 +18,13 @@ var openModal = function(){
 openModalBtn.addEventListener("click", openModal);
 
 
-var events= "https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
+
+
+var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
+var artist= "https://app.ticketmaster.com/discovery/v2/";
+var tickets= "https://app.ticketmaster.com/discovery/v2/";
+var rsvp= "https://app.ticketmaster.com/discovery/v2/";
+var notify="https://app.ticketmaster.com/discovery/v2/";
 
 var responseText= document.getElementById('#cityinput');
 
@@ -44,9 +50,9 @@ var responseText= document.getElementById('#cityinput');
             resultsCard.appendChild(li);
 
 
-        }
     });
 }
+
 getApi(events)*/
 // Grabbing the Id element input
 var cityInput =document.getElementById('city-input')
@@ -57,6 +63,11 @@ searchbtn.addEventListener("click",function(){
     // calling for the users input
     searchLoc(cityInput.value);
 });
+
+getApi(events)
+
+var cityInput =document.getElementById('cityinput');
+
 
 // fetches the URL to follow through with the call on line 62
 function searchLoc(term){
@@ -103,5 +114,28 @@ function searchLoc(term){
 
         
 
+
     })
 }*/
+
+//brewery API
+var brewUl= document.getElementById('breweries');
+
+//fetch breweries
+function breweryInput(input){
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log(data);
+        for (i=0; i<data.length; i++){
+            var brewList= document.createElement('li')
+            
+            brewUl.appendChild(brewList).textContent(data.name)
+            brewUl.appendChild(brewList).textContent('Address: '+data.street)
+            brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+        }
+    })
+}
+
+breweryInput(cityInput.value);
+
