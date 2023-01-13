@@ -51,15 +51,18 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 }
 
 getApi(events)*/
+
 // Grabbing the Id element input
+var cityInput =document.getElementById('city-input')
+// Grabbing the search button action
+var searchbtn =document.getElementById("btn")
+// Grabbing var the event listner applies the click function
 var cityInput =document.getElementById('cityinput');
 // Grabbing the search button action
 var searchBtn =document.getElementById('btn')
 
 
 // getApi(events)
-
-
 
 
 // fetches the URL to follow through with the call on line 62
@@ -85,10 +88,6 @@ function searchLoc(term){
    
             resultsCard.append(li)
         }
-        
-        
-        
-
     })
 }
 
@@ -104,10 +103,6 @@ function searchLoc(term){
         
 
         var resultsCard =document.getElementById("event-results")
-
-        
-
-
     })
 }*/
 
@@ -138,9 +133,6 @@ function breweryInput(input){
         }
     })
 }
-
-
-
 
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(){
