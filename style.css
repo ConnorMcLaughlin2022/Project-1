@@ -74,20 +74,21 @@ header {
 }
 
 .btn{
-    display:inline-block;
+ 
     background-color: antiquewhite;
     border-radius: 2px;
     text-align: center;
 }
 
 .btn-open{
-    position:absolute;
-    display: none;
+    position:relative;
+    margin-left: 15%;
+    bottom: 150px;
 }
 
 .btn-close{
     transform: translate(10px, -20px);
-    display: none;
+    border-radius: 50%;
 }
 
 .hidden {

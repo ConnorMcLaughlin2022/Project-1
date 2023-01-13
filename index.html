@@ -23,8 +23,7 @@
     <main>
         <section class="search-card z-depth-5 card-panel hoverable">
             <h3 class="card-header">Search By City</h3>
-            <!-- <input type="text" id="cityinput"> -->
-            <input class="input" type="text" placeholder="enter location">
+            <input class="input" id="cityinput" type="text" placeholder="enter location">
             <button type="submit" class="btn">find events</button>
         </section>
 
@@ -36,25 +35,22 @@
         </section>
 
         <section class="other-card z-depth-5 card-panel hoverable">
-            <h2>Lyft</h2>
+            <h2>Breweries</h2>
             <section class="modal hidden"></section>
             <div class="flex"></div>
             <button class="btn-close">X</button>
             <div>
-                <h3>Lyfts near you</h3>
-                <li >Lists available Lyfts</li>
+                <h3>Breweries Nearby</h3>
+                <ul id="breweries"></ul>
             </div>
             <input type="location " id="location" placeholder="Search locations near you">
             <button class="btn">Search</button>
         </section>
 
-            <div class="overlayhidden"></div>
+            <div class="overlay hidden"></div>
             <button class="btn btn-open">Open Modal</button>
-       
-
-
     </main>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

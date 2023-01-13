@@ -26,32 +26,45 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 var responseText= document.getElementById('#cityinput');
 
 
-function getApi(events){
-    fetch(events)
-    .then(function (response){
-        console.log(response);
+// function getApi(events){
+//     fetch(events)
+//     .then(function (response){
+//         console.log(response);
 
+//         return response.json();
+//     }).then(function(data){
+//         console.log(data._embedded.events)
+//         var info= data._embedded.events
+//         for(var i=0;i<info.length;i++){
+//             console.log(info[i])
+
+//             var resultsCard = document.getElementById('event-results')
+
+//             var li = document.createElement('li');
+//             li.classList.add('event-name')
+//             li.innerText = info[i].name;
+
+//             resultsCard.appendChild(li);
+
+
+//         }
+//     });
+// }
+// getApi(events)
+
+var cityInput =document.getElementById('cityinput');
+
+function searchLoc(term){
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
         return response.json();
     }).then(function(data){
-        console.log(data._embedded.events)
-        var info= data._embedded.events
-        for(var i=0;i<info.length;i++){
-            console.log(info[i])
-
-            var resultsCard = document.getElementById('event-results')
-
-            var li = document.createElement('li');
-            li.classList.add('event-name')
-            li.innerText = info[i].name;
-
-            resultsCard.appendChild(li);
-
-
-        }
-    });
+        console.log('search for ${format} of ${term}')
+        console.log(data);
+        console.log('===============')
+    })
 }
-getApi(events)
 
+// searchLoc('Seattle')
 /*function getApi(artist){
     fetch(artist)
     .then(function (response){
@@ -215,3 +228,20 @@ function showAttraction(json) {
 }
 
 getEvents(page);*/
+
+//brewery API
+var brewUl= document.getElementById('breweries');
+
+//fetch breweries
+function breweryInput(input){
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log(data);
+        
+        var brewList= document.createElement('li')
+        brewUl.appendChild(brewList).textContent(data.name)
+        brewUl.appendChild(brewList).textContent('Address: '+data.street)
+        brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+    })
+}
