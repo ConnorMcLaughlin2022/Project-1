@@ -1,3 +1,22 @@
+var modal = document.querySelector(".modal");
+var overlay = document.querySelector(".overlay");
+var openModalBtn = document.querySelector(".btn-open");
+var closeModalBtn = document.querySelector(".btn-close");
+var closeModal = function(){
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+}
+
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+var openModal = function(){
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+};
+
+openModalBtn.addEventListener("click", openModal);
+
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
@@ -33,6 +52,19 @@ function getApi(events){
 }
 getApi(events)
 
+var cityInput =document.getElementById('cityinput').value;
+
+function searchLoc(term){
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log('search for ${format} of ${term}')
+        console.log(data);
+        console.log('===============')
+    })
+}
+
+searchLoc('Seattle')
 /*function getApi(artist){
     fetch(artist)
     .then(function (response){
