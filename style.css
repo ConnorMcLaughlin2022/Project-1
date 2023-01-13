@@ -10,12 +10,16 @@ header {
     text-align: center;
     background: rgb(79, 78, 78);
     height: 15vh;
-    padding-top: 20px;
+    padding-top: 28px;
+    
     color: azure;
+}
+h3 {
+    text-align: center;
 }
 
 .search-card {
-    text-align: center;
+    text-align: left;
     /* padding: 20px; */
     width: 40%;
   align-items: center;
