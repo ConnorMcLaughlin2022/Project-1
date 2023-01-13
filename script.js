@@ -17,7 +17,6 @@ var openModal = function(){
 
 openModalBtn.addEventListener("click", openModal);
 
-=======
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
