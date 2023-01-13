@@ -21,11 +21,11 @@ function getApi(events){
 
             var resultsCard = document.getElementById('event-results')
 
-            var h2 = document.createElement('h2');
-            h2.classList.add('event-name')
-            h2.innerText = info[i].name;
+            var li = document.createElement('li');
+            li.classList.add('event-name')
+            li.innerText = info[i].name;
 
-            resultsCard.appendChild(h2);
+            resultsCard.appendChild(li);
 
 
         }
