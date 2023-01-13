@@ -17,6 +17,24 @@ var openModal = function(){
 
 openModalBtn.addEventListener("click", openModal);
 
+function getTicket (){
+  var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
+
+  fetch(requestUrl)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+    for(var i = 0; i < data.length; i ++){
+      var ticketLink = document.createElement('h2');
+      var eventImage = document.createElement('img');
+      ticketLink.textContent = data[i].url;
+      eventImage.textContent = data[i].image.url;
+    }
+  })
+}
+
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
@@ -26,7 +44,7 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 var responseText= document.getElementById('#cityinput');
 
 
-function getApi(events){
+/*function getApi(events){
     fetch(events)
     .then(function (response){
         console.log(response);
@@ -47,9 +65,9 @@ function getApi(events){
             resultsCard.appendChild(li);
 
 
-        }
     });
 }
+
 getApi(events)
 
 var cityInput =document.getElementById('cityinput').value;
