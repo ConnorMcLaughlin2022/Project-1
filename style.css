@@ -73,29 +73,36 @@ header {
     color: black;
 }
 
+
 #btn{
  
+=======
+.btn{
+
     background-color: antiquewhite;
     border-radius: 2px;
     text-align: center;
 }
 
 .btn-open{
-    position:relative;
-    margin-left: 15%;
+    position:absolute;
+    top: 45%;
+    right: 5%;
+    width: fit-content;
     bottom: 150px;
 }
 
 .btn-close{
     transform: translate(10px, -20px);
     border-radius: 50%;
+    position: absolute;
+    display: none;
 }
 
 .hidden {
     display: none;
 }
 
-<<<<<<< HEAD
 .overlay {
     position: fixed;
     top: 0;
@@ -107,5 +114,3 @@ header {
     backdrop-filter: blur (3px);
     z-index: 1;
 }
-=======
->>>>>>> dev
