@@ -19,7 +19,7 @@ h3 {
 }
 
 .search-card {
-    text-align: left;
+    text-align: left;a
     /* padding: 20px; */
     width: 40%;
   align-items: center;
@@ -99,7 +99,6 @@ h3 {
     display: none;
 }
 
-<<<<<<< HEAD
 .overlay {
     position: fixed;
     top: 0;
@@ -111,5 +110,3 @@ h3 {
     backdrop-filter: blur (3px);
     z-index: 1;
 }
-=======
->>>>>>> dev
