@@ -17,6 +17,7 @@ var openModal = function(){
 
 openModalBtn.addEventListener("click", openModal);
 
+=======
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
@@ -26,7 +27,7 @@ var notify="https://app.ticketmaster.com/discovery/v2/";
 var responseText= document.getElementById('#cityinput');
 
 
-function getApi(events){
+/*function getApi(events){
     fetch(events)
     .then(function (response){
         console.log(response);
@@ -47,9 +48,9 @@ function getApi(events){
             resultsCard.appendChild(li);
 
 
-        }
     });
 }
+
 getApi(events)
 
 var cityInput =document.getElementById('cityinput').value;
