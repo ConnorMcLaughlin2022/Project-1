@@ -7,7 +7,7 @@ var closeModal = function(){
     overlay.classList.add("hidden");
 }
 
-closeModalBtn.addEventListener("click", closeModal);
+// closeModalBtn.addEventListener("click", closeModal);
 //overlay.addEventListener("click", closeModal);
 
 var openModal = function(){
@@ -25,9 +25,6 @@ var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
 var rsvp= "https://app.ticketmaster.com/discovery/v2/";
 var notify="https://app.ticketmaster.com/discovery/v2/";
-
-var responseText= document.getElementById('#cityinput');
-
 
 /*function getApi(events){
     fetch(events)
@@ -54,19 +51,18 @@ var responseText= document.getElementById('#cityinput');
 }
 
 getApi(events)*/
+
 // Grabbing the Id element input
 var cityInput =document.getElementById('city-input')
 // Grabbing the search button action
 var searchbtn =document.getElementById("btn")
 // Grabbing var the event listner applies the click function
-searchbtn.addEventListener("click",function(){
-    // calling for the users input
-    searchLoc(cityInput.value);
-});
-
-getApi(events)
-
 var cityInput =document.getElementById('cityinput');
+// Grabbing the search button action
+var searchBtn =document.getElementById('btn')
+
+
+// getApi(events)
 
 
 // fetches the URL to follow through with the call on line 62
@@ -92,10 +88,6 @@ function searchLoc(term){
    
             resultsCard.append(li)
         }
-        
-        
-        
-
     })
 }
 
@@ -111,10 +103,6 @@ function searchLoc(term){
         
 
         var resultsCard =document.getElementById("event-results")
-
-        
-
-
     })
 }*/
 
@@ -130,12 +118,25 @@ function breweryInput(input){
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
             
-            brewUl.appendChild(brewList).textContent(data.name)
-            brewUl.appendChild(brewList).textContent('Address: '+data.street)
-            brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+            var brewName= document.createElement('h4');
+            brewName.textContent= data[i].name
+            brewUl.append(brewList);
+            
+            var brewAddress= document.createElement('p');
+            brewAddress.textContent= 'Address: '+data[i].street;
+            
+            var brewURL= document.createElement('p');
+            brewURL.textContent= 'Website: '+data[i].website_url;
+
+            brewList.append(brewName, brewAddress, brewURL);
+            brewUl.append(brewList);
         }
     })
 }
 
-breweryInput(cityInput.value);
-
+// Grabbing var the event listner applies the click function
+searchBtn.addEventListener("click",function(){
+    // calling for the users input
+    searchLoc(cityInput.value);
+    breweryInput(cityInput.value);
+});
