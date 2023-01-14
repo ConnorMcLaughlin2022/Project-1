@@ -1,3 +1,4 @@
+
 var modal = document.querySelector(".modal");
 var overlay = document.querySelector(".overlay");
 var openModalBtn = document.querySelector(".btn-open");
@@ -17,7 +18,24 @@ var openModal = function(){
 
 openModalBtn.addEventListener("click", openModal);
 
-function getTicket (){
+function eventImage (){
+  $.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/events/k7vGFKzleBdwS/images.json?apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b",
+    async:true,
+    dataType: "json",
+    success: function(json) {
+                console.log(json);
+                // Parse the response.
+                // Do other things.
+             },
+    error: function(xhr, status, err) {
+                // This time, we do not end up here!
+             }
+  });
+}
+
+  function getTicket (){
   var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 
   fetch(requestUrl)
