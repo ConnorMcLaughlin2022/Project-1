@@ -18,6 +18,11 @@ var openModal = function(){
 openModalBtn.addEventListener("click", openModal);
 
 
+
+
+
+
+
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
@@ -50,7 +55,26 @@ var responseText= document.getElementById('#cityinput');
 
     });
 }
+
 getApi(events)
+
+
+getApi(events)*/
+// Grabbing the Id element input
+var cityInput =document.getElementById('city-input')
+// Grabbing the search button action
+var searchbtn =document.getElementById("btn")
+// Grabbing var the event listner applies the click function
+searchbtn.addEventListener("click",function(){
+    // calling for the users input
+    searchLoc(cityInput.value);
+});
+
+getApi(events)
+
+var cityInput =document.getElementById('cityinput');
+
+
 
 // fetches the URL to follow through with the call on line 62
 function searchLoc(term){
@@ -86,120 +110,31 @@ function searchLoc(term){
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
         return response.json();
     })
-}
-getApi1(notify);*/
-// search event
-/*$.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b",
-    async:true,
-    dataType: "json",
-    success: function(json) {
-                console.log(json);
-                // Parse the response.
-                // Do other things.
-             },
-    error: function(xhr, status, err) {
-                // This time, we do not end up here!
-             }
-  });
 
-  var page = 0;
 
-function getEvents(page) {
-
-  $('#events-panel').show();
-  $('#attraction-panel').hide();
-
-  if (page < 0) {
-    page = 0;
-    return;
-  }
-  if (page > 0) {
-    if (page > getEvents.json.page.totalPages-1) {
-      page=0;
-    }
-  }
-  
-  $.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
-    async:true,
-    dataType: "json",
-    success: function(json) {
-          getEvents.json = json;
-  			  showEvents(json);
-  		   },
-    error: function(xhr, status, err) {
-  			  console.log(err);
-  		   }
-  });
-}
-
-function showEvents(json) {
-  var items = $('#events .list-group-item');
-  items.hide();
-  var events = json._embedded.events;
-  var item = items.first();
-  for (var i=0;i<events.length;i++) {
-    item.children('.list-group-item-heading').text(events[i].name);
-    item.children('.list-group-item-text').text(events[i].dates.start.localDate);
-    try {
-      item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
-    } catch (err) {
-      console.log(err);
-    }
-    item.show();
-    item.off("click");
-    item.click(events[i], function(eventObject) {
-      console.log(eventObject.data);
-      try {
-        getAttraction(eventObject.data._embedded.attractions[0].id);
-      } catch (err) {
-      console.log(err);
-      }
-    });
-    item=item.next();
-  }
-}
-
-$('#prev').click(function() {
-  getEvents(--page);
-});
-
-$('#next').click(function() {
-  getEvents(++page);
-});
-
-function getAttraction(id) {
-  $.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG",
-    async:true,
-    dataType: "json",
-    success: function(json) {
-          showAttraction(json);
-  		   },
-    error: function(xhr, status, err) {
-  			  console.log(err);
-  		   }
-  });
-}
-
-function showAttraction(json) {
-  $('#events-panel').hide();
-  $('#attraction-panel').show();
-  
-  $('#attraction-panel').click(function() {
-    getEvents(page);
-  });
-  
-  $('#attraction .list-group-item-heading').first().text(json.name);
-  $('#attraction img').first().attr('src',json.images[0].url);
-  $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
-}
 
 getEvents(page);*/
 
+
+
+//brewery API
+var brewUl= document.getElementById('breweries');
+
+//fetch breweries
+function breweryInput(input){
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log(data);
+        for (i=0; i<data.length; i++){
+            var brewList= document.createElement('li')
+            
+            brewUl.appendChild(brewList).textContent(data.name)
+            brewUl.appendChild(brewList).textContent('Address: '+data.street)
+            brewUl.appendChild(brewList).textContent('Website: '+data.website_url)
+        }
     })
-}*/
+}
+
+breweryInput(cityInput.value);
+
