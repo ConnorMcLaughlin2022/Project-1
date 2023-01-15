@@ -23,79 +23,39 @@ openModalBtn.addEventListener("click", openModal);
 
 
 
+// ticketmaster API URLs
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 
-/*function getApi(events){
-    fetch(events)
-    .then(function (response){
-        console.log(response);
+//variables for input field, search button, and lists for API
+var cityInput= document.getElementById('city-input');
+var searchBtn= document.getElementById('search-btn');
+var eventUl= document.getElementById('event-list');
+var brewUl= document.getElementById('breweries');
+var currentCity= document.getElementById('current-display');
 
+//ticketmaster API
+// fetches ticketmaster events
+function eventInput(input){
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${input}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
         return response.json();
     }).then(function(data){
-        console.log(data._embedded.events)
-        var info= data._embedded.events
-        for(var i=0;i<info.length;i++){
-            console.log(info[i])
+        console.log(data._embedded);
+        var events= data._embedded.events
 
-            var resultsCard = document.getElementById('event-results')
-
-            var li = document.createElement('li');
-            li.classList.add('event-name')
-            li.innerText = info[i].name;
-
-            resultsCard.appendChild(li);
-
-
-    });
-}
-
-getApi(events)*/
-
-
-
-
-// Grabbing the Id element input
-var cityInput =document.getElementById('city-input')
-// Grabbing the search button action
-var searchbtn =document.getElementById("btn")
-// Grabbing var the event listner applies the click function
-var cityInput =document.getElementById('cityinput');
-// Grabbing the search button action
-var searchBtn =document.getElementById('btn')
-
-
-// fetches the URL to follow through with the call on line 62
-function searchLoc(term){
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
-        console.log('search for ${format} of ${term}')
-        return response.json();
-    }).then(function(data){
-        // data that is grabbed from the URL
-        console.log(data);
-        for(i=0;i<data.length;i++){
-        var li =document.createElement("li");
-
-        var eveSearch = documment.createElement('h4')
-        eveSearch.textContent = data[i].name
-        cityInput.append(li);
-        
-        var eveNa = document.createElement('p');
-        eveNa.textContent = 'event-name'+data[i].name;
-
-        var eveUrl = document.createElement('p');
-        eveUrl.textContent = "url:" + data[i].website_url;
-
-        li.append(eveSearch,eveNa,eveUrl);
-        eveUrl.append(li);
+        for(i=0; i<events.length; i++){
+            var eventList= document.createElement('li');
             
-            /*console.log(info[i])
-            console.log('===============')
-            var resultsCard =document.getElementById("event-results");
-   
-            var li = document.getElementById("event-results")
-            li.classList.add('event-name')
-            li.innerText = info[i].name;*/
-   
+            var eventName= document.createElement('h5');
+            eventName.textContent=events[i].name;
+            eventUl.append(eventList);
+
+            //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
+            // var eventVenue= document.createElement('p');
+            // var venue= events[i]._embedded.venues[i];
+            // eventVenue.textContent='Venue: '+ venue.name;
+
+            eventList.append(eventName);
+            eventUl.append(eventList);
         }
     })
 }
@@ -115,8 +75,6 @@ getEvents(page);*/
 
 
 //brewery API
-var brewUl= document.getElementById('breweries');
-
 //fetch breweries
 function breweryInput(input){
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
@@ -126,8 +84,8 @@ function breweryInput(input){
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
             
-            var brewName= document.createElement('h4');
-            brewName.textContent= data[i].name
+            var brewName= document.createElement('h5');
+            brewName.textContent= data[i].name;
             brewUl.append(brewList);
             
             var brewAddress= document.createElement('p');
@@ -142,9 +100,21 @@ function breweryInput(input){
     })
 }
 
+//lets user know what city is being currently displayed
+function searchDisplay() {
+    currentCity.textContent= 'Currently displaying results for: '+cityInput.value;
+}
+
+//clear input field after search
+function clearInput() {
+    document.getElementById('city-input').value=('');
+}
+
 // Grabbing var the event listner applies the click function
-searchBtn.addEventListener("click",function(){
-    // calling for the users input
-    searchLoc(cityInput.value);
+searchBtn.addEventListener("click",function(event){
+    event.preventDefault();
+    eventInput(cityInput.value);
     breweryInput(cityInput.value);
+    searchDisplay();
+    clearInput();
 });
