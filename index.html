@@ -23,19 +23,18 @@
     <main>
         <section class="search-card z-depth-5 card-panel hoverable">
             <h3 class="card-header">Search By City</h3>
-            <input class="input" id="cityinput" type="text" placeholder="enter location">
-            <button type="submit" id="btn">find events</button>
+            <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
+            <button type="submit" class="btn" id="search-btn">search breweries and events</button>
+            <p id="current-display"></p>
         </section>
 
-        <section id="event-results" class="results-card z-depth-5 card-panel hoverable">
-            <h3>Events in Area:</h3>
-            <ul>
-
-            </ul>
+        <section class="results-card z-depth-5 card-panel hoverable">
+            <h3>Events</h3>
+            <ul id="event-list"></ul>
         </section>
 
         <section class="other-card z-depth-5 card-panel hoverable">
-            <h2>Breweries</h2>
+            <h3>Breweries</h3>
             <section class="modal hidden"></section>
             <div class="flex"></div>
             <div>
