@@ -58,6 +58,21 @@ function eventInput(input){
     })
 }
 
+/*function searchLoc(term,){
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log('search for ${format} of ${term}')
+        // data that is grabbed from the URL
+        console.log(data);
+        console.log('===============')
+
+        
+
+        var resultsCard =document.getElementById("event-results")
+    })
+}*/
+
 //brewery API
 //fetch breweries
 function breweryInput(input){
