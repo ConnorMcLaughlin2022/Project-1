@@ -26,31 +26,38 @@
             <input class="input" id="cityinput" type="text" placeholder="enter location">
             <button type="submit" id="btn">find events</button>
         </section>
-
+<!--Ticketmaster API-->
         <section id="event-results" class="results-card z-depth-5 card-panel hoverable">
             <h3>Events in Area:</h3>
             <ul>
 
             </ul>
+            <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Info</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Event Information</h4>
+      <a href="/linktoticketmaster">
+      </a>
+      <img>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
         </section>
-
-
+        <!--Brewery API-->
         <section class="other-card">
             <h2>other API?</h2>
-
         <section class="other-card z-depth-5 card-panel hoverable">
             <h2>Breweries</h2>
-            <section class="modal hidden"></section>
             <div class="flex"></div>
             <div>
                 <ul id="breweries"></ul>
             </div>
         </section>
-
-            <div class="overlay hidden"></div>
-            <button class="btn btn-open">More Info</button>
-       
-
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
