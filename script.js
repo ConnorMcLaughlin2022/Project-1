@@ -61,18 +61,6 @@ function eventInput(input){
 }
 
 
-})
-/*function searchLoc(term,){
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
-        return response.json();
-    })
-
-
-
-
-getEvents(page);*/
-
-
 
 //brewery API
 //fetch breweries
@@ -80,6 +68,7 @@ function breweryInput(input){
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
         return response.json();
     }).then(function(data){
+        clearHTMLData();
         console.log(data);
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
@@ -108,6 +97,14 @@ function searchDisplay() {
 //clear input field after search
 function clearInput() {
     document.getElementById('city-input').value=('');
+}
+
+function clearHTMLData() {
+    let dataClear = ['#breweries','#event-list'];
+    for (let i = 0; i < dataClear.length; i++) {
+
+    $(dataClear[i]).html('');
+    }
 }
 
 // Grabbing var the event listner applies the click function
