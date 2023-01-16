@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-   
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Project-1</title>
 </head>
+
 <body>
     <header>
-        <h1> title: Bands in Town?</h1>
-        <p>check your area for events near you</p>git 
+        <h1> Thats the Move!</h1>
+        <blockquote class="header-info"> You dont have to text your friends "whats the move?" anymore. We've made it
+            easy for you. Checkout events in your city and get links to tickets and sugguested breweries nearby. Grab a
+            beer (or two) before your event if you'd like, or just use it as a great social meeting spot for the group!
+            Checkout your city below for events near you.</blockquote>
     </header>
     <main>
-        <section class="search-card z-depth-5 card-panel hoverable">
+        <section class="search-card z-depth-5 card-panel hoverable card">
             <h3 class="card-header">Search By City</h3>
             <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
             <button type="submit" class="btn" id="search-btn">search breweries and events</button>
             <p id="current-display"></p>
         </section>
 
-        <section class="results-card z-depth-5 card-panel hoverable">
+        <section class="results-card z-depth-5 card-panel hoverable card">
             <h3>Events</h3>
             <ul id="event-list"></ul>
         </section>
 
-        <section class="other-card z-depth-5 card-panel hoverable">
+        <section class="other-card z-depth-5 card-panel hoverable card">
             <h3>Breweries</h3>
             <section class="modal hidden"></section>
             <div class="flex"></div>
@@ -44,8 +49,14 @@
         <div class="overlayhidden"></div>
         <button class="btn btn-open">Open Modal</button>
     </main>
+    
+    <!-- <footer>
+        <p>We do not advocate overconsumption or the abuse of alcohol. Please drink responsibly; Don't drink and drive;
+            For people over the age of 21 only.</p>
+    </footer> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>
