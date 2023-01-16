@@ -98,7 +98,7 @@ function searchDisplay() {
 function clearInput() {
     document.getElementById('city-input').value=('');
 }
-
+// Clears previous search
 function clearHTMLData() {
     let dataClear = ['#breweries','#event-list'];
     for (let i = 0; i < dataClear.length; i++) {
