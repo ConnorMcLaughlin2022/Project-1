@@ -1,25 +1,31 @@
-var modal = document.querySelector(".modal");
-var overlay = document.querySelector(".overlay");
-var openModalBtn = document.querySelector(".btn-open");
-var closeModalBtn = document.querySelector(".btn-close");
-var closeModal = function(){
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+ var modal = document.getElementsByClassName("modal");
+ var modalTrigger = document.getElementsByClassName("modal-trigger");
+var closeButton = document.getElementsByClassName("btn-flat");
+window.onclick = function(event){
+    if(event.target == modal){
+        modal.style.display= "none";
+    }
+}
+closeButton.addEventListener("click", );
+
+  function getTicket (){
+  var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
+
+  fetch(requestUrl)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+    for(var i = 0; i < data.length; i ++){
+      var ticketLink = document.createElement('h2');
+      var eventImage = document.createElement('img');
+      ticketLink.textContent = data[i].url;
+      eventImage.textContent = data[i].image.url;
+    }
+  })
 }
 
-// closeModalBtn.addEventListener("click", closeModal);
-//overlay.addEventListener("click", closeModal);
-
-var openModal = function(){
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-};
-
-openModalBtn.addEventListener("click", openModal);
-
-// ticketmaster API URLs
-var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
-var artist= "https://app.ticketmaster.com/discovery/v2/";
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
 var rsvp= "https://app.ticketmaster.com/discovery/v2/";
 var notify="https://app.ticketmaster.com/discovery/v2/";

@@ -74,6 +74,7 @@ main {
     border:1px solid;
 }
 
+
 .modal .flex{
     display:flex;
     align-items: center;
@@ -82,11 +83,6 @@ main {
 
 #location {
     border:1px solid white;
-}
-.modal li {
-    list-style-type: style none;
-    font-size: 12px;
-    color: black;
 }
 
 #btn{
@@ -97,17 +93,11 @@ main {
 
 .btn-open{
     position:absolute;
-    top: 45%;
+    top: 55%;
     right: 5%;
     width: fit-content;
+    height: fit-content;
     bottom: 150px;
-}
-
-.btn-close{
-    transform: translate(10px, -20px);
-    border-radius: 50%;
-    position: absolute;
-    display: none;
 }
 
 .hidden {
