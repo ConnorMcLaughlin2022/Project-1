@@ -9,22 +9,34 @@ body {
 header {
     text-align: center;
     background: rgb(79, 78, 78);
-    height: 15vh;
-    padding-top: 20px;
+    /* height: 50px; */
+    padding: 50px;
     color: azure;
-}
+    display: flex;
+    justify-content: center;
+    display: block;
 
+}
+.header-info {
+    text-align: left;
+    width: 50%;
+    margin: auto;
+}
+main {
+    /* display: flex; */
+    flex-wrap: wrap;
+    margin-top: 2%;
+    flex-direction: column;
+}
 .search-card {
     text-align: center;
-    /* padding: 20px; */
     width: 40%;
-  align-items: center;
-  background-color: gray;
-  margin-left: 30%;
-  margin-top: 10px;
-  border: 4px solid rgb(79, 78, 78) ;
-  padding: 10px;
- 
+    align-items: center;
+    background-color: gray;
+    margin-left: 30%;
+    margin-top: 10px;
+    border: 4px solid rgb(79, 78, 78) ;
+    padding: 10px;
 }
 
 .results-card {
@@ -32,9 +44,11 @@ header {
     height: 60vh;
     margin: 10px;
     float: right;
-    text-align: left;
+    text-align: center;
     border: 4px solid rgb(79, 78, 78);
-    padding-left: 5px;
+    /* padding-left: 5px; */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .other-card {
@@ -44,6 +58,8 @@ header {
     float: left;
     text-align: center;
     border: 4px solid rgb(79, 78, 78);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .modal {
@@ -99,3 +115,22 @@ header {
     backdrop-filter: blur (3px);
     z-index: 1;
 }
+/* footer {
+    height: 60px;
+    padding: 10%;
+    background: rgb(79, 78, 78);
+    bottom: 0;
+    position: absolute;
+  
+} */
+@media screen and (max-width: 992px) {
+    .card {
+      width: 50%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+}
+  
