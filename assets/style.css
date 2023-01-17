@@ -4,12 +4,11 @@
 }
 
 body {
-    background: burlywood;
+    background: linear-gradient(to bottom right, rgb(79, 78, 78), #448aff );
 }
 
 header {
     text-align: center;
-    background: rgb(79, 78, 78);
     /* height: 50px; */
     padding: 50px;
     color: azure;
