@@ -42,7 +42,6 @@ function eventInput(input){
     }).then(function(data){
         console.log(data._embedded);
         var events= data._embedded.events
-
         for(i=0; i<events.length; i++){
             var eventList= document.createElement('li');
             
@@ -55,7 +54,7 @@ function eventInput(input){
             eveUrl.setAttribute('href',events[i].url)
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
-        
+           
 
             eventList.append(eventName,eveUrl);
             eventUl.append(eventList);
@@ -80,6 +79,7 @@ function breweryInput(input){
         return response.json();
     }).then(function(data){
         console.log(data);
+        clearHTMLData();
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
             
@@ -110,6 +110,14 @@ function clearInput() {
     document.getElementById('city-input').value=('');
 }
 
+function clearHTMLData() {
+    let dataClear = ['#breweries','#event-list'];
+    console.log("clear html")
+    for (let i = 0; i < dataClear.length; i++) {
+
+    $(dataClear[i]).html('');
+    }
+}
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
