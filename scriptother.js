@@ -1,25 +1,40 @@
-var modal = document.querySelector(".modal");
-var overlay = document.querySelector(".overlay");
-var openModalBtn = document.querySelector(".btn-open");
-var closeModalBtn = document.querySelector(".btn-close");
-var closeModal = function(){
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+// search modal
+var searchCity = document.querySelector("h3");
+//click on search header 
+searchCity.addEventListener("click", openSearch);
+function openSearch(){
+    //display input 
+    document.getElementById("city-input").style.display = "block";
+    //search button
+    document.getElementById("search-btn").style.display = "block";
 }
+/*
+display close button 
+function closeSearch(){
+    document.getElementByClassName("close-btn").style.display = "block";
+}*/
 
-// closeModalBtn.addEventListener("click", closeModal);
-//overlay.addEventListener("click", closeModal);
+  function getTicket (){
+  var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 
-var openModal = function(){
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-};
-
-openModalBtn.addEventListener("click", openModal);
+  fetch(requestUrl)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+    for(var i = 0; i < data.length; i ++){
+      var ticketLink = document.createElement('h2');
+      var eventImage = document.createElement('img');
+      ticketLink.textContent = data[i].url;
+      eventImage.textContent = data[i].image.url;
+    }
+  })                       
+}
 
 // ticketmaster API URLs
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
-var artist= "https://app.ticketmaster.com/discovery/v2/";
+
 var tickets= "https://app.ticketmaster.com/discovery/v2/";
 var rsvp= "https://app.ticketmaster.com/discovery/v2/";
 var notify="https://app.ticketmaster.com/discovery/v2/";
@@ -44,34 +59,32 @@ function eventInput(input){
             var eventList= document.createElement('li');
             
             var eventName= document.createElement('h5');
-            eventName.textContent=events[i].name;
+            eventName.textContent= events[i].name;
             eventUl.append(eventList);
+
+            var eveUrl = document.createElement('a');
+            eveUrl.textContent= events[i].url;
+            eveUrl.setAttribute('href',events[i].url)
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
             // var eventVenue= document.createElement('p');
             // var venue= events[i]._embedded.venues[i];
             // eventVenue.textContent='Venue: '+ venue.name;
 
-            eventList.append(eventName);
+            eventList.append(eventName,eveUrl);
             eventUl.append(eventList);
         }
     })
 }
 
-/*function searchLoc(term,){
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${term}&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b`).then(function(response){
-        return response.json();
-    }).then(function(data){
-        console.log('search for ${format} of ${term}')
-        // data that is grabbed from the URL
-        console.log(data);
-        console.log('===============')
+//modal enter for results 
+cityInput.addEventListener("keypress", function (event){
+    if(event.key === "Enter"){
+        event.preventDefault();
+        document.getElementById("search-btn").click();
+    }
+});
 
-        
-
-        var resultsCard =document.getElementById("event-results")
-    })
-}*/
 
 //brewery API
 //fetch breweries
@@ -79,6 +92,7 @@ function breweryInput(input){
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
         return response.json();
     }).then(function(data){
+        clearHTMLData();
         console.log(data);
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
@@ -90,9 +104,10 @@ function breweryInput(input){
             var brewAddress= document.createElement('p');
             brewAddress.textContent= 'Address: '+data[i].street;
             
-            var brewURL= document.createElement('p');
-            brewURL.textContent= 'Website: '+data[i].website_url;
-
+            var brewURL= document.createElement('a');
+            brewURL.textContent= 'Visit Website';
+            brewURL.setAttribute('href', data[i].website_url);
+    
             brewList.append(brewName, brewAddress, brewURL);
             brewUl.append(brewList);
         }
@@ -107,6 +122,14 @@ function searchDisplay() {
 //clear input field after search
 function clearInput() {
     document.getElementById('city-input').value=('');
+}
+// Clears previous search
+function clearHTMLData() {
+    let dataClear = ['#breweries','#event-list'];
+    for (let i = 0; i < dataClear.length; i++) {
+
+    $(dataClear[i]).html('');
+    }
 }
 
 // Grabbing var the event listner applies the click function
