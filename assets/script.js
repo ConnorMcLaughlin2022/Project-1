@@ -33,6 +33,8 @@ var searchBtn= document.getElementById('search-btn');
 var eventUl= document.getElementById('event-list');
 var brewUl= document.getElementById('breweries');
 var currentCity= document.getElementById('current-display');
+var brewEl= document.querySelector('.other-card');
+var eventEl= document.querySelector('.results-card');
 
 //ticketmaster API
 // fetches ticketmaster events
@@ -113,6 +115,8 @@ function clearInput() {
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
+    brewEl.setAttribute('class','other-card z-depth-5 card-panel hoverable card')
+    eventEl.setAttribute('class','results-card z-depth-5 card-panel hoverable card')
     eventInput(cityInput.value);
     breweryInput(cityInput.value);
     searchDisplay();
