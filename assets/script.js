@@ -75,12 +75,11 @@ cityInput.addEventListener("keypress", function (event){
 //brewery API
 //fetch breweries
 function breweryInput(input){
+    clearHTMLData();
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
         return response.json();
     }).then(function(data){
-        clearHTMLData();
         console.log(data);
-        clearHTMLData();
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
             
@@ -120,24 +119,6 @@ function clearHTMLData() {
     }
 }
 
-// Clears previous search
-function clearHTMLData() {
-    let dataClear = ['#breweries','#event-list'];
-    for (let i = 0; i < dataClear.length; i++) {
-
-    $(dataClear[i]).html('');
-    }
-}
-
-// clears results cards for breweries and events
-function clearHTMLData() {
-    let dataClear = ['#breweries','#event-list'];
-    console.log("clear html")
-    for (let i = 0; i < dataClear.length; i++) {
-
-    $(dataClear[i]).html('');
-    }
-}
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
