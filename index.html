@@ -13,7 +13,8 @@
     <!-- Compiled and minified JavaScript -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- <style> .mySlides {display:none;}</style> -->
     <title>Project-1</title>
 </head>
 
@@ -27,6 +28,17 @@
 
     </header>
     <main>
+
+        <div class="search">
+            <div class="w3-content w3-section" style="height: 300px; width: 300px;">
+                <img class="mySlides" src="./assets/images/beer-1.jpg" style="width:100%; height: 100%; object-fit: cover; overflow: hidden;">
+                <img class="mySlides" src="./assets/images/beer-2.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+                <img class="mySlides" src="./assets/images/beer-3.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+                <img class="mySlides" src="./assets/images/beer-4.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+                <img class="mySlides" src="./assets/images/beer-5.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+      
+              </div>
+              
         <section class="search-card z-depth-5 card-panel hoverable card">
             <h3 class="card-header">Search By City</h3>
             <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
@@ -34,6 +46,15 @@
             <p id="current-display"></p>
         </section>
 
+        <div class="w3-content w3-section" style="height: 300px; width: 300px;">
+            <img class="mySlides1" src="./assets/images/event-2.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+            <img class="mySlides1" src="./assets/images/event-3.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+            <img class="mySlides1" src="./assets/images/event-4.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+            <img class="mySlides1" src="./assets/images/event-1.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+            <img class="mySlides1" src="./assets/images/event-5.jpg" style="width:100%;height: 100%; object-fit: cover; overflow: hidden;">
+          </div>
+</div>
+<div class="results">
         <section class="results-card z-depth-5 card-panel hoverable card">
             <h3>Events</h3>
             <ul id="event-list"></ul>
@@ -47,16 +68,17 @@
                 <ul id="breweries"></ul>
             </div>
         </section>
+    </div>
         <div class="overlayhidden"></div>
         <button class="btn btn-open">Open Modal</button>
     </main>
     
-    <!-- <footer>
+    <footer>
         <p>We do not advocate overconsumption or the abuse of alcohol. Please drink responsibly; Don't drink and drive;
             For people over the age of 21 only.</p>
-    </footer> -->
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
