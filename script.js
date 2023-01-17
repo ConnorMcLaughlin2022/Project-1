@@ -103,9 +103,10 @@ function breweryInput(input){
             var brewAddress= document.createElement('p');
             brewAddress.textContent= 'Address: '+data[i].street;
             
-            var brewURL= document.createElement('p');
-            brewURL.textContent= 'Website: '+data[i].website_url;
-
+            var brewURL= document.createElement('a');
+            brewURL.textContent= 'Visit Website';
+            brewURL.setAttribute('href', data[i].website_url);
+    
             brewList.append(brewName, brewAddress, brewURL);
             brewUl.append(brewList);
         }
