@@ -1,12 +1,12 @@
- var modal = document.getElementsByClassName("modal");
- var modalTrigger = document.getElementsByClassName("modal-trigger");
+var modal = document.getElementsByClassName("modal");
+var modalTrigger = document.getElementsByClassName("modal-trigger");
 var closeButton = document.getElementsByClassName("btn-flat");
 window.onclick = function(event){
     if(event.target == modal){
         modal.style.display= "none";
     }
 }
-closeButton.addEventListener("click", );
+// closeButton.addEventListener("click", );
 
   function getTicket (){
   var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
@@ -66,8 +66,6 @@ function eventInput(input){
         }
     })
 }
-
-
 
 //brewery API
 //fetch breweries
