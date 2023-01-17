@@ -1,12 +1,18 @@
- var modal = document.getElementsByClassName("modal");
- var modalTrigger = document.getElementsByClassName("modal-trigger");
-var closeButton = document.getElementsByClassName("btn-flat");
-window.onclick = function(event){
-    if(event.target == modal){
-        modal.style.display= "none";
-    }
+// search modal
+var searchCity = document.querySelector("h3");
+//click on search header 
+searchCity.addEventListener("click", openSearch);
+function openSearch(){
+    //display input 
+    document.getElementById("city-input").style.display = "block";
+    //search button
+    document.getElementById("search-btn").style.display = "block";
 }
-// closeButton.addEventListener("click", );
+/*
+display close button 
+function closeSearch(){
+    document.getElementByClassName("close-btn").style.display = "block";
+}*/
 
   function getTicket (){
   var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
@@ -23,7 +29,7 @@ window.onclick = function(event){
       ticketLink.textContent = data[i].url;
       eventImage.textContent = data[i].image.url;
     }
-  })
+  })                       
 }
 
 // ticketmaster API URLs
@@ -70,6 +76,13 @@ function eventInput(input){
     })
 }
 
+//modal enter for results 
+cityInput.addEventListener("keypress", function (event){
+    if(event.key === "Enter"){
+        event.preventDefault();
+        document.getElementById("search-btn").click();
+    }
+});
 
 
 //brewery API
