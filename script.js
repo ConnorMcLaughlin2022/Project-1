@@ -6,7 +6,7 @@ window.onclick = function(event){
         modal.style.display= "none";
     }
 }
-closeButton.addEventListener("click", );
+// closeButton.addEventListener("click", );
 
   function getTicket (){
   var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
@@ -53,15 +53,18 @@ function eventInput(input){
             var eventList= document.createElement('li');
             
             var eventName= document.createElement('h5');
-            eventName.textContent=events[i].name;
+            eventName.textContent= events[i].name;
             eventUl.append(eventList);
+
+            var eveUrl = document.createElement('p');
+            eveUrl.textContent= events[i].url;
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
             // var eventVenue= document.createElement('p');
             // var venue= events[i]._embedded.venues[i];
             // eventVenue.textContent='Venue: '+ venue.name;
 
-            eventList.append(eventName);
+            eventList.append(eventName,eveUrl);
             eventUl.append(eventList);
         }
     })
