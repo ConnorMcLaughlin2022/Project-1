@@ -56,7 +56,7 @@ function eventInput(input){
             eveUrl.setAttribute('href',events[i].url)
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
-        
+           
 
             eventList.append(eventName,eveUrl);
             eventUl.append(eventList);
@@ -75,10 +75,10 @@ cityInput.addEventListener("keypress", function (event){
 //brewery API
 //fetch breweries
 function breweryInput(input){
+    clearHTMLData();
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
         return response.json();
     }).then(function(data){
-        clearHTMLData();
         console.log(data);
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
