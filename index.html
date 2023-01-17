@@ -25,8 +25,16 @@
     <main>
         <section class="search-card z-depth-5 card-panel hoverable card">
             <h3 class="card-header">Search By City</h3>
-            <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
-            <button type="submit" class="btn" id="search-btn">search breweries and events</button>
+            <!--Modal-->
+            <div id="overlay">
+                <div class="close-btn" onclick="closeSearch()" title="Close Overlay">X</div>
+                <div class="overlay-content"></div>
+                <form action="action_page.php">
+                    <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
+                    <button type="submit" class="btn" id="search-btn">search breweries and events</button>
+                </form>
+            </div>
+            
             <p id="current-display"></p>
         </section>
         
@@ -35,21 +43,7 @@
             <h3>Events</h3>
             <ul id="event-list"></ul>
         </section>
-        
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Info</a>
-        <!-- Modal Structure -->
-        <!-- <div id="modal1" class="modal">
-          <div class="modal-content">
-            <h4>Event Information</h4>
-            <a href="/linktoticketmaster"></a>
-            <img>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-          </div>
-        </div> -->
-        
+   
         <!--Brewery API-->
         <section class="other-card z-depth-5 card-panel hoverable card">
             <h3>Breweries</h3>

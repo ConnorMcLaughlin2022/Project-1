@@ -1,12 +1,18 @@
-var modal = document.getElementsByClassName("modal");
-var modalTrigger = document.getElementsByClassName("modal-trigger");
-var closeButton = document.getElementsByClassName("btn-flat");
-window.onclick = function(event){
-    if(event.target == modal){
-        modal.style.display= "none";
-    }
+// search modal
+var searchCity = document.querySelector("h3");
+//click on search header 
+searchCity.addEventListener("click", openSearch);
+function openSearch(){
+    //display input 
+    document.getElementById("city-input").style.display = "block";
+    //search button
+    document.getElementById("search-btn").style.display = "block";
 }
-// closeButton.addEventListener("click", );
+/*
+display close button 
+function closeSearch(){
+    document.getElementByClassName("close-btn").style.display = "block";
+}*/
 
   function getTicket (){
   var requestUrl = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
@@ -23,7 +29,7 @@ window.onclick = function(event){
       ticketLink.textContent = data[i].url;
       eventImage.textContent = data[i].image.url;
     }
-  })
+  })                       
 }
 
 // ticketmaster API URLs
@@ -53,19 +59,31 @@ function eventInput(input){
             var eventList= document.createElement('li');
             
             var eventName= document.createElement('h5');
-            eventName.textContent=events[i].name;
+            eventName.textContent= events[i].name;
             eventUl.append(eventList);
+
+            var eveUrl = document.createElement('p');
+            eveUrl.textContent= events[i].url;
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
             // var eventVenue= document.createElement('p');
             // var venue= events[i]._embedded.venues[i];
             // eventVenue.textContent='Venue: '+ venue.name;
 
-            eventList.append(eventName);
+            eventList.append(eventName,eveUrl);
             eventUl.append(eventList);
         }
     })
 }
+
+//modal enter for results 
+cityInput.addEventListener("keypress", function (event){
+    if(event.key === "Enter"){
+        event.preventDefault();
+        document.getElementById("search-btn").click();
+    }
+});
+
 
 //brewery API
 //fetch breweries
@@ -103,7 +121,7 @@ function searchDisplay() {
 function clearInput() {
     document.getElementById('city-input').value=('');
 }
-
+// Clears previous search
 function clearHTMLData() {
     let dataClear = ['#breweries','#event-list'];
     for (let i = 0; i < dataClear.length; i++) {
