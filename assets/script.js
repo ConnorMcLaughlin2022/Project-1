@@ -44,7 +44,6 @@ function eventInput(input){
     }).then(function(data){
         console.log(data._embedded);
         var events= data._embedded.events
-
         for(i=0; i<events.length; i++){
             var eventList= document.createElement('li');
             
@@ -71,9 +70,7 @@ cityInput.addEventListener("keypress", function (event){
         event.preventDefault();
         document.getElementById("search-btn").click();
     }
-});
-
-
+})
 
 //brewery API
 //fetch breweries
@@ -112,6 +109,7 @@ function clearInput() {
     document.getElementById('city-input').value=('');
 }
 
+
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
@@ -121,7 +119,7 @@ searchBtn.addEventListener("click",function(event){
     breweryInput(cityInput.value);
     searchDisplay();
     clearInput();
-});
+})
 
 // script for the image carousel sections
 var myIndex = 0;

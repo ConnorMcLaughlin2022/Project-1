@@ -80,8 +80,7 @@ cityInput.addEventListener("keypress", function (event){
         event.preventDefault();
         document.getElementById("search-btn").click();
     }
-});
-
+})
 
 //brewery API
 //fetch breweries
@@ -136,7 +135,8 @@ searchBtn.addEventListener("click",function(event){
     breweryInput(cityInput.value);
     searchDisplay();
     clearInput();
-});
+})
+
 // script for the image carousel sections
 var myIndex = 0;
 var index1 = 0;
