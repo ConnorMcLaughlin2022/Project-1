@@ -20,12 +20,8 @@
 
 <body>
     <header>
-        <h1> Thats the Move!</h1>
-        <blockquote class="header-info"> You dont have to text your friends "whats the move?" anymore. We've made it
-            easy for you. Checkout events in your city and get links to tickets and sugguested breweries nearby. Grab a
-            beer (or two) before your event if you'd like, or just use it as a great social meeting spot for the group!
-            Checkout your city below for events near you.</blockquote>
-
+        <h1> That's the Move!</h1>
+        <blockquote class="header-info"> You don't have to text your friends, "What's the move?" anymore. We've made it easy for you. Check for events in your city and suggested breweries nearby. Grab a beer (or two) before your event, or use it as a great social meeting spot for the group! Search your city below for events near you!</blockquote>
     </header>
     <main>
 
@@ -41,8 +37,16 @@
               
         <section class="search-card z-depth-5 card-panel hoverable card">
             <h3 class="card-header">Search By City</h3>
-            <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
-            <button type="submit" class="btn" id="search-btn">search breweries and events</button>
+            <!--Modal-->
+            <div id="overlay">
+                <div class="close-btn" onclick="closeSearch()" title="Close Overlay">X</div>
+                <div class="overlay-content"></div>
+                <form action="action_page.php">
+                    <input class="input" id="city-input" type="text" placeholder="search by city" required value="">
+                    <button type="submit" class="btn" id="search-btn">search breweries and events</button>
+                </form>
+            </div>
+            
             <p id="current-display"></p>
         </section>
 
@@ -59,14 +63,12 @@
             <h3>Events</h3>
             <ul id="event-list"></ul>
         </section>
-
+   
+        <!--Brewery API-->
         <section class="other-card z-depth-5 card-panel hoverable card">
             <h3>Breweries</h3>
+            <ul id="breweries"></ul>
             <section class="modal hidden"></section>
-            <div class="flex"></div>
-            <div>
-                <ul id="breweries"></ul>
-            </div>
         </section>
     </div>
         <div class="overlayhidden"></div>
