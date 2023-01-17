@@ -62,8 +62,9 @@ function eventInput(input){
             eventName.textContent= events[i].name;
             eventUl.append(eventList);
 
-            var eveUrl = document.createElement('p');
+            var eveUrl = document.createElement('a');
             eveUrl.textContent= events[i].url;
+            eveUrl.setAttribute('href',events[i].url)
 
             //this created a promise uncaught error and only displayed the first event of the array so I turned it off for now
             // var eventVenue= document.createElement('p');
