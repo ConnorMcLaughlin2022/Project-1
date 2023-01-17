@@ -36,10 +36,6 @@ function closeSearch(){
 // ticketmaster API URLs
 var events= "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=V0B2fYIrETkSu47O0YEkBb813OUlH75b";
 
-var tickets= "https://app.ticketmaster.com/discovery/v2/";
-var rsvp= "https://app.ticketmaster.com/discovery/v2/";
-var notify="https://app.ticketmaster.com/discovery/v2/";
-
 //variables for input field, search button, and lists for API
 var cityInput= document.getElementById('city-input');
 var searchBtn= document.getElementById('search-btn');
