@@ -44,7 +44,6 @@ function eventInput(input){
     }).then(function(data){
         console.log(data._embedded);
         var events= data._embedded.events
-
         for(i=0; i<events.length; i++){
             var eventList= document.createElement('li');
             
@@ -71,9 +70,7 @@ cityInput.addEventListener("keypress", function (event){
         event.preventDefault();
         document.getElementById("search-btn").click();
     }
-});
-
-
+})
 
 //brewery API
 //fetch breweries
@@ -81,6 +78,7 @@ function breweryInput(input){
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${input}`).then(function(response){
         return response.json();
     }).then(function(data){
+        clearHTMLData();
         console.log(data);
         for (i=0; i<data.length; i++){
             var brewList= document.createElement('li')
@@ -112,6 +110,15 @@ function clearInput() {
     document.getElementById('city-input').value=('');
 }
 
+// Clears previous search
+function clearHTMLData() {
+    let dataClear = ['#breweries','#event-list'];
+    for (let i = 0; i < dataClear.length; i++) {
+
+    $(dataClear[i]).html('');
+    }
+}
+
 // Grabbing var the event listner applies the click function
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
@@ -121,7 +128,7 @@ searchBtn.addEventListener("click",function(event){
     breweryInput(cityInput.value);
     searchDisplay();
     clearInput();
-});
+})
 
 // script for the image carousel sections
 var myIndex = 0;
