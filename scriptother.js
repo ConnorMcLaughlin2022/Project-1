@@ -1,3 +1,4 @@
+
 // search modal
 var searchCity = document.querySelector("h3");
 //click on search header 
@@ -140,3 +141,38 @@ searchBtn.addEventListener("click",function(event){
     searchDisplay();
     clearInput();
 });
+// script for the image carousel sections
+var myIndex = 0;
+var index1 = 0;
+carousel();
+
+console.log("hello")
+function carousel() {
+  var i;
+  console.log("hey")
+  var x = document.getElementsByClassName("mySlides");
+  var y = document.getElementsByClassName("mySlides1");
+
+  //console.log(x, y);
+  console.log(x.length, y.length);
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < y.length; i++) {
+    y[i].style.display = "none";  
+  }
+
+  myIndex++;
+  index1++;
+  console.log(myIndex, index1)
+  if (myIndex > x.length) {
+      myIndex = 1;
+    }    
+    x[myIndex-1].style.display = "block";  
+    
+    if (index1 > y.length) {index1 = 1}    
+    y[index1-1].style.display = "block";
+    
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
