@@ -4,6 +4,7 @@
 =======
 # Thats the Move!(project 1) # README:
 
+![Image 1-18-23 at 9 25 AM](https://user-images.githubusercontent.com/116329927/213255247-0ee2de6d-ae6a-4366-ba0e-13df56eb3256.jpg)
 
 
 ## Description
